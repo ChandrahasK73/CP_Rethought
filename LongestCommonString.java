@@ -14,8 +14,6 @@ class LongestCommonString {
             }
         }
         commonString += strs[minStringInd];
-        System.out.println(minStringInd);
-        System.out.println(commonString);
         if(commonString.length()==0) return "";
         for(int i=0;i<n;i++){
             if(i!= minStringInd){
