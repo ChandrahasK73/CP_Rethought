@@ -27,7 +27,7 @@ class BSTImplementation {
         return root;
     }
 
-    public TNode delete(TNode root, int data) {
+    public static TNode delete(TNode root, int data) {
         if (root == null)
             return root;
         if (data < root.data)
@@ -175,5 +175,9 @@ class MainMethod {
         BSTImplementation.rightView(root);
         System.out.println(" -> RightView");
         System.out.println(BSTImplementation.getMinValue(root) + " -> MinValue");
+        System.out.println(BSTImplementation.delete(root, Integer.parseInt(br.readLine())));
+        BSTImplementation.inOrderTraversal(root);
+        System.out.println();
+        System.out.println(BSTImplementation.search(root, Integer.parseInt(br.readLine())));
     }
 }
