@@ -1,0 +1,19 @@
+  +-----------------+        +---------------+          +---------------+
+  |       User      |        |    Property   |          |    Booking    |
+  +-----------------+        +---------------+          +---------------+
+  | email (PK)      |        | property_id   |          | booking_id (PK)|
+  | name            |        | type          |          | renter_email   |
+  | address         |        | location      |          | property_id    |
+  |                  |        | description   |          | start_date     |
+  |                  |        | price         |          | end_date       |
+  |                  |        | availability |          | payment_method |
+  |                  |        |               |          | total_cost     |
+  |                  |        |               |          |               |
+  | job_title       |        |               |          |               |
+  | real_estate_agcy|        |               |          |               |
+  | contact_info    |        |               |          |               |
+  | rental_pref     |        |               |          |               |
+  | credit_card     |        |               |          |               |
+  | payment_addr    |        |               |          |               |
+  | preferred_loc   |        |               |          |               |
+  +-----------------+        +---------------+          +---------------+
