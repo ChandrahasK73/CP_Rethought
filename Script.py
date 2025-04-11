@@ -36,12 +36,22 @@ def build_new_message(base_parts, sequence_number, insert_count, initial_length)
     final_message = "{:010d}".format(total_length) + new_body[10:]
     return final_message, total_length
 
+def receive_until(sock, terminator="\r\n"):
+    """Receive from socket until the terminator is reached."""
+    data = ""
+    while not data.endswith(terminator):
+        chunk = sock.recv(1024)
+        if not chunk:
+            break
+        data += chunk
+    return data
+
 def connect_and_send():
     sock = None
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((TARGET_IP, TARGET_PORT))
-        print("🔗 Connected to %s:%d" % (TARGET_IP, TARGET_PORT))
+        print(" Connected to %s:%d" % (TARGET_IP, TARGET_PORT))
 
         sequence_number = 100002
         initial_length = 446
@@ -54,7 +64,7 @@ def connect_and_send():
             print(" Sending message:\n" + message)
             sock.sendall(message)
 
-            response = sock.recv(1024)
+            response = receive_until(sock)
             if response:
                 print(" Received response:\n" + response)
 
